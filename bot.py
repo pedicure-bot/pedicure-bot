@@ -1,4 +1,3 @@
-
 import asyncio
 import aiosqlite
 import os
@@ -668,17 +667,19 @@ def generate_certificate(name: str) -> bytes:
     img = Image.open(CERTIFICATE_TEMPLATE).convert("RGB")
     draw = ImageDraw.Draw(img)
 
+    # Шрифти для Railway (Linux)
     try:
-        font_name = ImageFont.truetype("C:/Windows/Fonts/times.ttf", 60)
-        font_date = ImageFont.truetype("C:/Windows/Fonts/times.ttf", 28)
+        font_name = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
+        font_date = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
     except:
         try:
-            font_name = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 56)
-            font_date = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 26)
+            font_name = ImageFont.truetype("DejaVuSans-Bold.ttf", 60)
+            font_date = ImageFont.truetype("DejaVuSans.ttf", 28)
         except:
             font_name = ImageFont.load_default()
             font_date = ImageFont.load_default()
 
+    # Ім'я по центру
     text = name.upper()
     bbox = draw.textbbox((0, 0), text, font=font_name)
     text_width = bbox[2] - bbox[0]
@@ -686,6 +687,7 @@ def generate_certificate(name: str) -> bytes:
     y = 335
     draw.text((x, y), text, font=font_name, fill=(35, 35, 35))
 
+    # Дата
     date_text = get_ukrainian_date()
     draw.text((115, 805), date_text, font=font_date, fill=(35, 35, 35))
 
