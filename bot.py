@@ -667,15 +667,18 @@ def generate_certificate(name: str) -> bytes:
     img = Image.open(CERTIFICATE_TEMPLATE).convert("RGB")
     draw = ImageDraw.Draw(img)
 
-    # Шрифти для Railway (Linux)
+   # Шрифти для сертифіката
     try:
-        font_name = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
-        font_date = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
+        # Спочатку шукаємо у нашій папці photos в проєкті
+        font_name = ImageFont.truetype("photos/DejaVuSans-Bold.ttf", 60)
+        font_date = ImageFont.truetype("photos/DejaVuSans-Bold.ttf", 28) # або звичайний шрифт, якщо додавали
     except:
         try:
-            font_name = ImageFont.truetype("DejaVuSans-Bold.ttf", 60)
-            font_date = ImageFont.truetype("DejaVuSans.ttf", 28)
+            # Запасний варіант для хостингу (Linux)
+            font_name = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
+            font_date = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
         except:
+            # Зовсім крайній варіант за замовчуванням
             font_name = ImageFont.load_default()
             font_date = ImageFont.load_default()
 
