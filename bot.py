@@ -775,14 +775,15 @@ def back_to_main_kb():
 
 @dp.message(CommandStart())
 async def start(message: types.Message, state: FSMContext):
+    await state.set_state(Reg.waiting_name)
+    
     if "paid" in message.text:
         await message.answer(
             "🎉 Дякуємо за успішну оплату!\n\n"
-            "Вітаємо на курсі «Педикюр»!"
+            "👋 Вітаємо на курсі «Педикюр»!\n"
+            "Для реєстрації напиши своє Ім'я та прізвище"
         )
-        await message.answer("Обери, що хочеш зробити:", reply_markup=await main_menu_kb(message.from_user.id))
     else:
-        await state.set_state(Reg.waiting_name)
         await message.answer(
             "👋 Вітаю на курсі «Педикюр»\n\n"
             "Для початку реєстрації напиши своє Ім'я та прізвище"
