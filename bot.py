@@ -1089,9 +1089,10 @@ async def mod4(callback: types.CallbackQuery):
     await callback.message.answer(MODULE_4_PART3)
     await callback.message.answer_photo(FSInputFile("photos/nigot_chervoniy_kryg.png"))
 
-    await callback.message.answer(MODULE_4_PART4)
+       await callback.message.answer(MODULE_4_PART4)
     await callback.message.answer("🎥 Відео: Як видалити піднігтьовий мозоль\nhttps://youtu.be/_AiGKBolThA")
-    await callback.message.answer(MODULE_4_PART5, reply_markup=back_to_modules_kb())
+    await callback.message.answer(MODULE_4_PART5)
+    await callback.message.answer("🎥 Відео:\nhttps://youtu.be/ZuspWAInM9Q", reply_markup=back_to_modules_kb())
     await callback.answer()
 
 
