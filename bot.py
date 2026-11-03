@@ -580,8 +580,8 @@ MODULE_4_PART5 = """Запам’ятайте головне
 Не лікуйте те, що сказав клієнт. Лікуйте те, що ви побачили під час огляду.
 
 Правильний огляд — це вже половина успішної роботи.
+"""
 
-👉 Дивитися відео: https://youtu.be/ZuspWAInM9Q?si=gcSVAdv7Ta49j7y2"""
 
 
 # ====================== БАЗА ДАНИХ ======================
@@ -1092,7 +1092,7 @@ async def mod4(callback: types.CallbackQuery):
     await callback.message.answer(MODULE_4_PART4)
     await callback.message.answer("🎥 Відео: Як видалити піднігтьовий мозоль\nhttps://youtu.be/_AiGKBolThA")
     await callback.message.answer(MODULE_4_PART5)
-    await callback.message.answer("🎥 Відео:\nhttps://youtu.be/ZuspWAInM9Q", reply_markup=back_to_modules_kb())
+    await callback.message.answer("🎥 Врослий ніготь\nhttps://youtu.be/ZuspWAInM9Q", reply_markup=back_to_modules_kb())
     await callback.answer()
 
 
